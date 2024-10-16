@@ -131,6 +131,7 @@ def display_forecasted_data(data: Dict):
 
 
 def display_shap_explanation(data: Dict[str, Any], model: object):
+    print(data.get('n_weeks'))
     # Extract data from the input dictionary
     filtered_data = data.get('filtered_data')
     forecast_df = data.get('forecast_df')

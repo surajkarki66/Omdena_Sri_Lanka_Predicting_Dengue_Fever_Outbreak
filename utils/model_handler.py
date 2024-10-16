@@ -1,14 +1,14 @@
 # src/model_handler.py
 from typing import List, Union
 
-import joblib
 import os
 import datetime
 import pandas as pd
 
 from darts import TimeSeries
+from darts.models import TransformerModel
 
-from config.constants import MODEL_LOADERS, TransformerModel, NBEATSModel
+from config.constants import OTHER_MODEL_LOADERS
 
 def load_model(model_file: str) -> object:
     """
@@ -26,12 +26,12 @@ def load_model(model_file: str) -> object:
     if not os.path.exists(model_file):
         raise FileNotFoundError(f"Model file not found: {model_file}")
 
-    model_class = MODEL_LOADERS.get(model_file)
-    if model_class:
-        return model_class.load(model_file)
+    other_model_class = OTHER_MODEL_LOADERS.get(model_file)
+    
+    if other_model_class:
+        return other_model_class.load(model_file)
     else:
-        # Fallback to joblib for non-Darts models
-        return joblib.load(model_file)
+        return TransformerModel.load(model_file)
 
 
 def forecast_cases(
@@ -52,7 +52,7 @@ def forecast_cases(
         pd.DataFrame: DataFrame with forecasted dates and predicted cases.
     """
     #Determine if the model requires future co-variates
-    if isinstance(model, (TransformerModel, NBEATSModel)):
+    if isinstance(model, (TransformerModel)):
         model.to_cpu()
         
     if weather_data:
