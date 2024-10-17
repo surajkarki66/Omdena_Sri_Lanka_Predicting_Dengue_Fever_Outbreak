@@ -111,34 +111,35 @@ See also the official documentation from Streamlit about docker deployments:
 <https://docs.streamlit.io/knowledge-base/tutorials/deploy/docker>
 
 ## Model Performance Summary
-| District       | Best Model                         | RMSE Score |
-|----------------|------------------------------------|------------|
-| Ampara         | Random Forest with Co-variates     | 4.4        |
-| Anuradhapura   | Random Forest                      | 3          |
-| Badulla        | Transformer Model                  | 4.76       |
-| Batticaloa     | Random Forest with Co-variates     | 5.3        |
-| Colombo        | Regression Model with Co-variates  | 23.1       |
-| Galle          | Random Forest                      | 6.37       |
-| Gampaha        | ARIMA                              | 15         |
-| Hambantota     | ARIMA                              | 7.3        |
-| Jaffna         | LightGBM Model                     | 8.79       |
-| Kalutara       | Random Forest                      | 13.3       |
-| Kandy          | Transformer Model                  | 11.6       |
-| Kegalle        | LightGBMModel                      | 11.38      |
-| Kilinochchi    | Regression Model                   | 1.27       |
-| Kurunegela     | ARIMA                              | 8.2        |
-| Mannar         | Linear Regression Model            | 3.09       |
-| Matale         | LightGBMModel                      | 4          |
-| Matara         | Catboost                           | 9.13       |
-| Monaragala     | AutoARIMA                          | 3.64       |
-| Mullaitivu     | XGBModel                           | 0.8        |
-| Nuwara Eliya   | Catboost Model                     | 1.6        |
-| Polonnaruwa    | Transformer Model                  | 1.96       |
-| Puttalam       | RandomForest                       | 3.37       |
-| Ratnapura      | Transformer Model                  | 34         |
-| Trincomalee    | Random Forest with Co-variates     | 4.16       |
-| Vavuniya       | RandomForest                       | 0.92       |
+| District        | Best Model                    | RMSE Score |
+|-----------------|-------------------------------|------------|
+| Ampara          | Random Forest with Co-variates | 4.4        |
+| Anuradhapura    | LightGBM Model                 | 3          |
+| Badulla         | Transformer Model              | 4.76       |
+| Batticaloa      | Random Forest with Co-variates | 5.3        |
+| Colombo         | Random Forest with Co-variates | 16         |
+| Galle           | Regression Model               | 6.37       |
+| Gampaha         | ARIMA                          | 15         |
+| Hambantota      | ARIMA                          | 7.3        |
+| Jaffna          | Catboost Model                 | 8.79       |
+| Kalutara        | Random Forest                  | 13.3       |
+| Kandy           | Transformer Model              | 11.6       |
+| Kegalle         | LightGBM Model                 | 11.38      |
+| Kilinochchi     | Regression Model               | 1.27       |
+| Kurunegela      | ARIMA                          | 8.2        |
+| Mannar          | Random Forest                  | 3          |
+| Matale          | Linear Regression Model        | 4          |
+| Matara          | Catboost                       | 9.13       |
+| Monaragala      | AutoARIMA                      | 3.64       |
+| Mullaitivu      | XGBModel                       | 0.8        |
+| Nuwara Eliya    | Catboost Model                 | 1.6        |
+| Polonnaruwa     | Transformer Model              | 1.96       |
+| Puttalam        | RandomForest                   | 3.37       |
+| Ratnapura       | Transformer Model              | 34         |
+| Trincomalee     | Random Forest with Co-variates | 4.16       |
+| Vavuniya        | RandomForest                   | 0.92       |
 
 
 
-**Average RMSE: 7.6**
+
+**Average RMSE: 7.3**
