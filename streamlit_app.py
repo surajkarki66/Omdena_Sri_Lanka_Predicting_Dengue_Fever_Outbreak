@@ -10,7 +10,7 @@ from utils.data_loader import load_data
 from utils.model_handler import load_model
 from utils.logger import logger
 from config.constants import DISTRICT_WITH_WEATHER_FIELD, DISTRICT_WITHOUT_SHAP_EXPLANATION
-from components.tabs import display_data_visualization, display_forecasted_data, display_shap_explanation
+from components.tabs import display_data_visualization, display_forecasted_data, display_help, display_shap_explanation
 
 # ------------------------
 # Configuration and Setup
@@ -129,7 +129,7 @@ uploaded_weather_data = None
 if selected_district in DISTRICT_WITH_WEATHER_FIELD:
     st.sidebar.subheader("🌦️ Upload Weather Data")
     uploaded_file = st.sidebar.file_uploader(
-        "Upload a CSV file containing weather data",
+        "Upload a CSV file containing weather data (Note: Checkout the Help tab to understand what and how to upload an input weather data.)",
         type=["csv"],
         accept_multiple_files=False
     )
@@ -396,7 +396,7 @@ requires_weather = selected_district in DISTRICT_WITH_WEATHER_FIELD
 
 # Define all possible tabs
 tabs = st.tabs(
-    ["🔮 Forecasted Data", "📊 Data Visualization", "🔍 SHAP Explanation"])
+    ["🔮 Forecasted Data", "📊 Data Visualization", "🔍 SHAP Explanation", "❔ Help"])
 
 # Forecasted Data Tab
 with tabs[0]:
@@ -436,3 +436,7 @@ with tabs[2]:
             }, model)
     else:
         st.markdown("### 🔍 SHAP Explanation not available for this district.")
+
+# Help Tab
+with tabs[3]:
+    display_help()

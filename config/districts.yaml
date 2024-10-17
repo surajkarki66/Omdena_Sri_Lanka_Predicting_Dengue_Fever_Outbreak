@@ -6,9 +6,9 @@ districts:
 - name: Badulla
   model_file: models/Badulla_TransformerModel.pt
 - name: Batticaloa
-  model_file: models/Batticaloa_XGBModel.pt
+  model_file: models/Batticaloa_RandomForest.pt
 - name: Colombo
-  model_file: models/Colombo_LinearRegressionModel.pt
+  model_file: models/Colombo_RegressionModel.pt
 - name: Galle
   model_file: models/Galle_RegressionModel.pt
 - name: Gampaha
@@ -28,7 +28,7 @@ districts:
 - name: Kurunegala
   model_file: models/Kurunegala_AutoARIMA.pt
 - name: Mannar
-  model_file: models/Mannar_RandomForest.pt
+  model_file: models/Mannar_LinearRegressionModel.pt
 - name: Matale
   model_file: models/Matale_LinearRegressionModel.pt
 - name: Matara

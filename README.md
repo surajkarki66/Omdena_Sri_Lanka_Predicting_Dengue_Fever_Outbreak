@@ -111,13 +111,13 @@ See also the official documentation from Streamlit about docker deployments:
 <https://docs.streamlit.io/knowledge-base/tutorials/deploy/docker>
 
 ## Model Performance Summary
-| District        | Best Model                    | RMSE Score |
-|-----------------|-------------------------------|------------|
+| District        | Best Model                     | RMSE Score |
+|-----------------|------------------------------- |------------|
 | Ampara          | Random Forest with Co-variates | 4.4        |
-| Anuradhapura    | LightGBM Model                 | 3          |
+| Anuradhapura    | Random Forest                  | 3          |
 | Badulla         | Transformer Model              | 4.76       |
 | Batticaloa      | Random Forest with Co-variates | 5.3        |
-| Colombo         | Random Forest with Co-variates | 16         |
+| Colombo         | Regression M. with Co-variates | 16         |
 | Galle           | Regression Model               | 6.37       |
 | Gampaha         | ARIMA                          | 15         |
 | Hambantota      | ARIMA                          | 7.3        |
@@ -127,7 +127,7 @@ See also the official documentation from Streamlit about docker deployments:
 | Kegalle         | LightGBM Model                 | 11.38      |
 | Kilinochchi     | Regression Model               | 1.27       |
 | Kurunegela      | ARIMA                          | 8.2        |
-| Mannar          | Random Forest                  | 3          |
+| Mannar          | Linear Regression Model        | 3          |
 | Matale          | Linear Regression Model        | 4          |
 | Matara          | Catboost                       | 9.13       |
 | Monaragala      | AutoARIMA                      | 3.64       |

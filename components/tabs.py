@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pandas as pd
 
@@ -87,7 +88,7 @@ def display_forecasted_data(data: Dict):
         else:
             # Prompt user to upload weather data
             st.warning(
-                "Please upload a valid weather data CSV file to generate forecasts for this district.")
+                "Please upload a valid weather data CSV file to generate forecasts for this district. (Note: Checkout the Help tab to understand what and how to upload an input weather data.)")
     else:
         # District does not require weather data; proceed with forecasting
         with st.spinner("Generating forecast..."):
@@ -131,7 +132,6 @@ def display_forecasted_data(data: Dict):
 
 
 def display_shap_explanation(data: Dict[str, Any], model: object):
-    print(data.get('n_weeks'))
     # Extract data from the input dictionary
     filtered_data = data.get('filtered_data')
     forecast_df = data.get('forecast_df')
@@ -283,3 +283,29 @@ def display_data_visualization(data: Dict):
 
     else:
         st.write("No data available for any district.")
+
+def display_help():
+    st.markdown("### 📚 Help")
+    st.markdown(
+        """
+        #### How to upload weather data?
+        1. Download the [weather data](https://github.com/surajkarki66/Omdena_Sri_Lanka_Predicting_Dengue_Fever_Outbreak/tree/main/weather%20data) for the district you want to forecast dengue cases for.
+        2. Click the link and download the CSV file corresponding to your chosen district.
+        3. Open the app's **Upload Section**.
+        4. Drag and drop the file or use the **Browse** button to select the downloaded file.
+        5. Click **Submit** to upload, and the dengue case forecasting will begin.
+        """
+    )
+    # Add some space before the image using HTML <br> tag
+    st.markdown("**Note:** Only download weather data having week start date greater or equal to 2024-4-29", unsafe_allow_html=True)
+    
+    # Get the current directory (or wherever your image is stored)
+    current_dir = os.path.dirname(__file__)
+    
+    # Step back one directory
+    parent_dir = os.path.dirname(current_dir)
+
+    # Construct the full path to the image file
+    image_path = os.path.join(parent_dir, "assets", "table.png")
+    st.image(image_path, caption="Structure of CSV of a particular district's weather data.", use_column_width=True)
+    
