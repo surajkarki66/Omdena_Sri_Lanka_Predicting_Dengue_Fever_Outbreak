@@ -396,7 +396,21 @@ requires_weather = selected_district in DISTRICT_WITH_WEATHER_FIELD
 
 # Define all possible tabs
 tabs = st.tabs(
-    ["🔮 Forecasted Data", "📊 Data Visualization", "🔍 SHAP Explanation", "❔ Help"])
+    ["🔮 Forecasted Data", "🔍 SHAP Explanation", "📊 Data Visualization", "❔ Help"])
+
+
+# Data Visualization Tab
+with tabs[2]:
+    display_data_visualization({
+        'filtered_data': filtered_data,
+        'selected_district': selected_district,
+        'selected_variable': selected_variable,
+        'original_data': data
+    })
+
+# Help Tab
+with tabs[3]:
+    display_help()
 
 # Forecasted Data Tab
 with tabs[0]:
@@ -411,20 +425,12 @@ with tabs[0]:
     })
 
 
-# Data Visualization Tab
-with tabs[1]:
-    display_data_visualization({
-        'filtered_data': filtered_data,
-        'selected_district': selected_district,
-        'selected_variable': selected_variable,
-        'original_data': data
-    })
-
 # SHAP Explanation Tab
-with tabs[2]:
+with tabs[1]:
     if selected_district not in DISTRICT_WITHOUT_SHAP_EXPLANATION:
         if forecast_df is None:
-            st.write("🔄 Waiting for forecast data (First forecast dengue cases by going into the Forecasted Data Tab.)")
+            st.write(
+                "🔄 Waiting for forecast data (First forecast dengue cases by going into the Forecasted Data Tab.)")
             st.spinner("Loading SHAP explanation...")
         else:
             display_shap_explanation({
@@ -436,7 +442,3 @@ with tabs[2]:
             }, model)
     else:
         st.markdown("### 🔍 SHAP Explanation not available for this district.")
-
-# Help Tab
-with tabs[3]:
-    display_help()
